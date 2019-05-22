@@ -1,0 +1,59 @@
+1. ---
+Tasks:      run script, setInterval, setTimeout
+Microtasks:
+JS stack:   script,
+Log:
+
+2. ---
+Tasks:      setInterval, setTimeout
+Microtasks:
+JS stack:   setInterval callback
+Log:        'James'
+
+3. ---
+Tasks:      setTimeout
+Microtasks:
+JS stack:
+Log:        'James', 'Richard'
+
+4. ---
+Tasks:
+Microtasks:
+JS stack:   setTimeout callback
+Log:        'James', 'Richard'
+
+5. ---
+Tasks:
+Microtasks: Promise then
+JS stack:   setTimeout callback
+Log:        'James', 'Richard'
+
+6. ---
+Tasks:
+Microtasks: Promise then
+JS stack:
+Log:        'James', 'Richard', 'John'
+
+7. ---
+Tasks:      setTimeout then
+Microtasks:
+JS stack:   Promise then callback
+Log:        'James', 'Richard', 'John', 'Robert'
+
+8. ---
+Tasks:      setTimeout then
+Microtasks:
+JS stack:   setInterval callback
+Log:        'James', 'Richard', 'John', 'Robert', 'James'
+
+9. ---
+Tasks:      setTimeout then
+Microtasks:
+JS stack:   setTimeout then callback
+Log:        'James', 'Richard', 'John', 'Robert', 'James', 'Michael'
+
+10. ---
+Tasks:
+Microtasks:
+JS stack:
+Log:        'James', 'Richard', 'John', 'Robert', 'James', 'Michael'
